@@ -23,7 +23,7 @@ module ZoomLauncher
     def launch
       auth
       if next_event.meeting_url
-        puts "Your next Zoom meeting is #{next_event.summary.bold}."
+        puts "Your next Zoom meeting is \"#{next_event.summary.bold}\"."
         is_was = next_event.already_started? ? 'was' : 'is'
         puts "It #{is_was} scheduled to start #{next_event.start_time_in_words}."
         puts
@@ -46,6 +46,11 @@ module ZoomLauncher
       calendar.authorization = user_credentials_for(
         Google::Apis::CalendarV3::AUTH_CALENDAR
       )
+    end
+
+    desc 'logout', 'Deauthorize this computer from accessing your calendar'
+    def logout
+      FileUtils.rm_rf token_store_path
     end
 
     no_commands do

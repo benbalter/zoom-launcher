@@ -76,19 +76,13 @@ class BaseCli < Thor
       credentials = authorizer.get_credentials(user_id)
       if credentials.nil?
         url = authorizer.get_authorization_url(base_url: OOB_URI)
-        say 'Open the following URL in your browser and authorize the application.'
-        say url
+        `open #{url}`
         code = ask 'Enter the authorization code:'
         credentials = authorizer.get_and_store_credentials_from_code(
           user_id: user_id, code: code, base_url: OOB_URI
         )
       end
       credentials
-    end
-
-    # Gets the API key of the client
-    def api_key
-      ENV['GOOGLE_API_KEY'] || options[:api_key]
     end
   end
 end
