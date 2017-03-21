@@ -1,0 +1,56 @@
+{
+ "kind": "calendar#events",
+ "etag": "\"abc123\"",
+ "summary": "Personal",
+ "updated": "2017-03-21T17:29:36.593Z",
+ "timeZone": "America/New_York",
+ "accessRole": "owner",
+ "defaultReminders": [
+  {
+   "method": "popup",
+   "minutes": 10
+  }
+ ],
+ "nextSyncToken": "xxx=",
+ "items": [
+  {
+   "kind": "calendar#event",
+   "etag": "\"1234\"",
+   "id": "1234abc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=1234",
+   "created": "2017-01-24T19:22:33.000Z",
+   "updated": "2017-01-28T11:43:45.502Z",
+   "summary": "Test Event",
+   "description": "This is a test event",
+   "location": "https://foo.zoom.us/j/1245678",
+   "creator": {
+    "email": "joe@example.com",
+    "displayName": "Joe Example"
+   },
+   "organizer": {
+     "email": "foo@example.com",
+     "displayName": "Joe Example"
+   },
+   "start": {
+    "dateTime": "2016-01-01T18:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2016-01-25T19:30:00-05:00"
+   },
+   "iCalUID": "abc@google.com",
+   "sequence": 0,
+   "attendees": [
+    {
+     "email": "joe@example.com",
+     "displayName": "Joe Example",
+     "organizer": true,
+     "responseStatus": "accepted"
+    }
+   ],
+   "reminders": {
+    "useDefault": true
+   }
+  }
+ ]
+}
