@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 require 'webmock/rspec'
 require 'timecop'
 
 Timecop.freeze(Time.local(2016))
-require_relative "../lib/zoom_launcher"
+require_relative '../lib/zoom_launcher'
 
 RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
   config.filter_run_when_matching :focus
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
   config.disable_monkey_patching!
   config.order = :random
   Kernel.srand config.seed
 
-  if config.files_to_run.one?
-    config.default_formatter = 'doc'
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 end
 
 WebMock.disable_net_connect!
@@ -40,5 +40,5 @@ def capture(stream)
   result
 end
 
-ENV["GOOGLE_CLIENT_SECRETS"] = fixture_path("client_secrets.json")
-ENV["GOOGLE_CREDENTIAL_STORE"] = fixture_path("credentials.yml")
+ENV['GOOGLE_CLIENT_SECRETS'] = fixture_path('client_secrets.json')
+ENV['GOOGLE_CREDENTIAL_STORE'] = fixture_path('credentials.yml')

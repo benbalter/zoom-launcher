@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dotenv'
 require 'google/apis/calendar_v3'
 require 'action_view'
@@ -12,6 +14,6 @@ require 'os'
 require_relative 'google/apis/calendar_v3/event'
 
 module ZoomLauncher
-  autoload :CLI,        "zoom_launcher/cli"
-  autoload :GoogleAuth, "zoom_launcher/google_auth"
+  autoload :CLI,        'zoom_launcher/cli'
+  autoload :GoogleAuth, 'zoom_launcher/google_auth'
 end

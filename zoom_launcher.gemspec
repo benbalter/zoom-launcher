@@ -1,4 +1,6 @@
 # coding: utf-8
+# frozen_string_literal: true
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'zoom_launcher/version'
@@ -20,17 +22,16 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'actionview'
-  spec.add_dependency 'colored'
-  spec.add_dependency 'dotenv'
-  spec.add_dependency 'google-api-client'
-  spec.add_dependency 'os'
-  spec.add_dependency 'thor'
+  spec.add_dependency 'actionview', '~> 5.0'
+  spec.add_dependency 'colored', '~> 1.2'
+  spec.add_dependency 'dotenv', '~> 2.2'
+  spec.add_dependency 'google-api-client', '~> 0.10'
+  spec.add_dependency 'os', '~> 0.9'
+  spec.add_dependency 'thor', '~> 0.19'
   spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'webmock'
-  spec.add_development_dependency 'timecop'
-
+  spec.add_development_dependency 'rubocop', '~> 0.48'
+  spec.add_development_dependency 'webmock', '~> 2.3'
+  spec.add_development_dependency 'timecop', '~> 0.8'
 end

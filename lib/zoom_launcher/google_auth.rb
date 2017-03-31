@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Copyright 2016 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +21,7 @@ module ZoomLauncher
   class GoogleAuth < Thor
     include Thor::Actions
 
-    OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'.freeze
+    OOB_URI = 'urn:ietf:wg:oauth:2.0:oob'
 
     class_option :user, type: :string
     class_option :api_key, type: :string
@@ -58,11 +60,11 @@ module ZoomLauncher
       def user_credentials_for(scope)
         FileUtils.mkdir_p(File.dirname(token_store_path))
 
-        if ENV['GOOGLE_CLIENT_ID']
-          client_id = Google::Auth::ClientId.new(ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'])
-        else
-          client_id = Google::Auth::ClientId.from_file(client_secrets_path)
-        end
+        client_id = if ENV['GOOGLE_CLIENT_ID']
+                      Google::Auth::ClientId.new(ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'])
+                    else
+                      Google::Auth::ClientId.from_file(client_secrets_path)
+                    end
         token_store = Google::Auth::Stores::FileTokenStore.new(file: token_store_path)
         authorizer = Google::Auth::UserAuthorizer.new(client_id, scope, token_store)
 

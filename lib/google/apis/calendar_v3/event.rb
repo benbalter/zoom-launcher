@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Google
   module Apis
     module CalendarV3
       class Event
-        MEETING_URL_REGEX = /https:\/\/.*\.zoom\.us\/j\/\d+/
+        MEETING_URL_REGEX = %r{https://.*\.zoom\.us/j/\d+}
         include ActionView::Helpers::DateHelper
 
         def meeting_url

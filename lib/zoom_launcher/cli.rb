@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module ZoomLauncher
   class CLI < GoogleAuth
-    CALENDAR = 'primary'.freeze
+    CALENDAR = 'primary'
     ARGUMENTS = {
       single_events: true,
       order_by: 'startTime',
