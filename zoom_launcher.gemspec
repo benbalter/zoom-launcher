@@ -11,7 +11,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Ben Balter']
   spec.email         = ['ben.balter@github.com']
 
-  spec.summary       = ''
+  spec.summary       = 'A command line tool for joining your next Zoom meeting. Edit
+Add topics'
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = 'MIT'
 
