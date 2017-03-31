@@ -21,7 +21,7 @@ Oh, and here's the URL in case you need it: https://www.google.com/calendar/even
 
 In order to use Zoom Launcher, you need to create an OAuth app and authorize it to access your calendar:
 
-1. Go to https://console.developers.google.com and create a new project
+1. Go to https://console.developers.google.com and create a new project (you may need to switch to your work account)
 2. Click "Credentials" on the left side and create a new credential for that project
 3. Create a new OAuth credential, and download the resulting JSON file
 4. Move the file to `~/.config/google/client_secrets.json`
