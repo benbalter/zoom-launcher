@@ -73,7 +73,7 @@ module ZoomLauncher
         credentials = authorizer.get_credentials(user_id)
         if credentials.nil?
           url = authorizer.get_authorization_url(base_url: OOB_URI)
-          `open #{url}`
+          `open "#{url}"`
           code = ask 'Enter the authorization code:'
           credentials = authorizer.get_and_store_credentials_from_code(
             user_id: user_id, code: code, base_url: OOB_URI
