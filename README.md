@@ -26,3 +26,7 @@ In order to use Zoom Launcher, you need to create an OAuth app and authorize it 
 3. Create a new OAuth credential, and download the resulting JSON file
 4. Move the file to `~/.config/google/client_secrets.json`
 5. Run `zoom auth` and follow the instructions to authorize the app
+
+## Project status
+
+Rough-around-the-edges-but-it-usually-works-use-at-your-own-peril
