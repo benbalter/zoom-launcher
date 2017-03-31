@@ -30,7 +30,7 @@ module ZoomLauncher
         end
         puts "Oh, and here's the URL in case you need it: #{next_event.html_link}"
       else
-        puts "Can't find any upcomming Zoom meetings"
+        puts "Can't find any upcoming Zoom meetings"
       end
     end
 
