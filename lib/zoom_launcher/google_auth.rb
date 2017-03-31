@@ -56,7 +56,7 @@ module ZoomLauncher
       end
 
       # Returns user credentials for the given scope. Requests authorization
-      # if requrired.
+      # if required.
       def user_credentials_for(scope)
         FileUtils.mkdir_p(File.dirname(token_store_path))
 
