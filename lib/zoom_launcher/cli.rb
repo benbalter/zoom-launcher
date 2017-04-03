@@ -24,6 +24,7 @@ module ZoomLauncher
         if next_event.more_than_five_minutes_from_now?
           puts "Here's the Zoom URL: #{next_event.meeting_url.bold}"
         else
+          # TODO: Open using zoommtg:// protocol
           puts "Opening #{next_event.meeting_url.bold}..."
           `open #{next_event.meeting_url}`
 
