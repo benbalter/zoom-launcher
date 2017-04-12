@@ -8,7 +8,7 @@ module Google
         include ActionView::Helpers::DateHelper
 
         def meeting_url
-          matches = (location + description).match(MEETING_URL_REGEX)
+          matches = (location.to_s + description.to_s).match(MEETING_URL_REGEX)
           matches[0] if matches
         end
 
