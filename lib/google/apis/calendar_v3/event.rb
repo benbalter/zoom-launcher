@@ -4,11 +4,11 @@ module Google
   module Apis
     module CalendarV3
       class Event
-        MEETING_URL_REGEX = %r{https://.*?\.zoom\.us/j/\d+}
+        MEETING_URL_REGEX = %r{https://.*?\.zoom\.us/(?:j/\d+|my/\S+)}
         include ActionView::Helpers::DateHelper
 
         def meeting_url
-          matches = (location.to_s + description.to_s).match(MEETING_URL_REGEX)
+          matches = "#{location} #{description}".match(MEETING_URL_REGEX)
           matches[0] if matches
         end
 
