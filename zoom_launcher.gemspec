@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ben.balter@github.com']
 
   spec.summary       = 'A command line tool for joining your next Zoom meeting'
-  spec.homepage      = "https://github.com/benbalter/zoom-launcher"
+  spec.homepage      = 'https://github.com/benbalter/zoom-launcher'
   spec.license       = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
