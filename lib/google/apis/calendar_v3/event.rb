@@ -4,12 +4,19 @@ module Google
   module Apis
     module CalendarV3
       class Event
-        MEETING_URL_REGEX = %r{https://.*?\.zoom\.us/(?:j/\d+|my/\S+)}
+        MEETING_URL_REGEX = %r{https://.*?\.zoom\.us/(?:j/(\d+)|my/(\S+))}
         include ActionView::Helpers::DateHelper
 
+        def meeting_id
+          @meeting_id ||= (matches[1] || matches[2])
+        end
+
         def meeting_url
-          matches = "#{location} #{description}".match(MEETING_URL_REGEX)
-          matches[0] if matches
+          @meeting_url ||= URI(matches[0]) if matches
+        end
+
+        def zoom_url
+          "zoommtg://zoom.us/join?confno=#{meeting_id}" if meeting_id && !vanity_url?
         end
 
         def already_started?
@@ -27,6 +34,16 @@ module Google
           else
             "in #{distance}".bold
           end
+        end
+
+        private
+
+        def matches
+          @matches ||= "#{location} #{description}".match(MEETING_URL_REGEX)
+        end
+
+        def vanity_url?
+          meeting_id && meeting_id !~ /\A\d+\z/
         end
       end
     end

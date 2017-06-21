@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'uri'
 
 module ZoomLauncher
@@ -23,17 +24,10 @@ module ZoomLauncher
         puts
 
         if next_event.more_than_five_minutes_from_now?
-          puts "Here's the Zoom URL: #{next_event.meeting_url.bold}"
+          puts "Here's the Zoom URL: #{next_event.meeting_url.to_s.bold}"
         else
-          puts "Opening #{next_event.meeting_url.bold}..."
-          #   Attempt to open via zoommtg://
-          uri = URI(next_event.meeting_url)
-          if m = uri.path.match(/[0-9]+/)
-            `open zoommtg://zoom.us/join?confno=#{m[0]}`
-          else
-            `open #{next_event.meeting_url}`
-          end
-
+          puts "Opening #{next_event.meeting_url.to_s.bold}..."
+          `open #{next_event.zoom_url || next_event.meeting_url}`
         end
         puts "Oh, and here's the URL in case you need it: #{next_event.html_link}"
       else
