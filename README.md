@@ -1,3 +1,7 @@
+*This project is no longer actively maintained. Please check out https://github.com/benbalter/zoom-go instead, which is this project, re-written in Go for a better user experience. Future development will happen there.*
+
+---
+
 # Zoom Launcher
 
 A command line tool for joining your next Zoom meeting.
